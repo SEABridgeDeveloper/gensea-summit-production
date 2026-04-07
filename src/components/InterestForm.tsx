@@ -38,30 +38,24 @@ export default function InterestForm() {
     setSubmitting(true)
     setError(false)
 
-    try {
-      if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-        // Demo mode: simulate submission
-        await new Promise((r) => setTimeout(r, 1200))
-        setSubmitted(true)
-        return
-      }
+try {
+  // console.log("Pass -1")
 
-      const res = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify({ ...data, source: 'website' }),
-      })
-      const result = await res.json()
+  await fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    mode: "no-cors",
+    body: JSON.stringify({ ...data, source: 'website' }),
+  })
 
-      if (result.status === 'ok') {
-        setSubmitted(true)
-      } else {
-        throw new Error(result.message || 'Submission failed')
-      }
-    } catch {
-      setError(true)
-      setSubmitting(false)
-      setTimeout(() => setError(false), 4000)
-    }
+  // console.log("Pass 0 - Request sent")
+  setSubmitted(true)      // ✅ show success screen
+  setSubmitting(false)    // ✅ re-enable button
+  
+} catch {
+  setError(true)
+  setSubmitting(false)
+  setTimeout(() => setError(false), 4000)
+}
   }
 
   return (
