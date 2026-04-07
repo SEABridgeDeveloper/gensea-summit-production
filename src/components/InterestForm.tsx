@@ -2,10 +2,6 @@
 
 import { useState, type FormEvent } from 'react'
 
-// Replace with your deployed Google Apps Script URL
-// See: backend/SETUP.md for deployment instructions
-const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'
-
 const interestOptions = [
   { value: 'Talent Recruitment', label: 'Talent Recruitment' },
   { value: 'Brand Exposure', label: 'Brand Exposure' },
@@ -41,11 +37,11 @@ export default function InterestForm() {
 try {
   // console.log("Pass -1")
 
-  await fetch(GOOGLE_SCRIPT_URL, {
-    method: 'POST',
-    mode: "no-cors",
-    body: JSON.stringify({ ...data, source: 'website' }),
-  })
+await fetch('/api/submit', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ ...data, source: 'website' }),
+})
 
   // console.log("Pass 0 - Request sent")
   setSubmitted(true)      // ✅ show success screen
