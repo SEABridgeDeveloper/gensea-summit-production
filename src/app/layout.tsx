@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import VisitTracker from '@/components/VisitTracker'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <feColorMatrix type="saturate" values="0" />
           </filter>
         </svg>
+        <VisitTracker />
         {children}
       </body>
     </html>
