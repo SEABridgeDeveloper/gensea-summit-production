@@ -30,8 +30,8 @@ export async function POST(req: Request) {
         })
         if (geoRes.ok) {
           const geo = await geoRes.json()
-          country = geo.country_name || ''
-          city = geo.city || ''
+          country = geo.country_name || '-'
+          city = geo.city || '-'
         }
       } catch {
         // Geolocation failed — continue without it
