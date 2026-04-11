@@ -27,7 +27,7 @@ function initialSetup() {
   if (!vis) {
     vis = ss.insertSheet(VISITS_SHEET);
     vis.appendRow([
-      'Timestamp', 'Visitor ID', 'Is New', 'Page', 'Referrer', 'User Agent'
+      'Timestamp', 'Visitor ID', 'Is New', 'Country', 'City', 'Page', 'Referrer', 'User Agent'
     ]);
     vis.getRange('1:1').setFontWeight('bold');
   }
@@ -94,7 +94,7 @@ function handleVisit(data) {
   }
 
   var sheet = getOrCreateSheet(VISITS_SHEET, [
-    'Timestamp', 'Visitor ID', 'Is New', 'Page', 'Referrer', 'User Agent'
+    'Timestamp', 'Visitor ID', 'Is New', 'Country', 'City', 'Page', 'Referrer', 'User Agent'
   ]);
 
   // Check if this visitor has been seen before
@@ -111,6 +111,8 @@ function handleVisit(data) {
     new Date(),
     visitorId,
     isNew,
+    sanitize(data.country || '', 64),
+    sanitize(data.city || '', 64),
     sanitize(data.page || '/', 256),
     sanitize(data.referrer || '', 512),
     sanitize(data.userAgent || '', 512)
