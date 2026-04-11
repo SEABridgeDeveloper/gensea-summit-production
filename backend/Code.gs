@@ -111,11 +111,11 @@ function handleVisit(data) {
     new Date(),
     visitorId,
     isNew,
-    sanitize(data.country || '', 64),
-    sanitize(data.city || '', 64),
+    sanitize(data.country || '-', 64),
+    sanitize(data.city || '-', 64),
     sanitize(data.page || '/', 256),
-    sanitize(data.referrer || '', 512),
-    sanitize(data.userAgent || '', 512)
+    sanitize(data.referrer || '-', 512),
+    sanitize(data.userAgent || '-', 512)
   ]);
 
   return jsonResponse({ status: 'ok', isNew: isNew });
