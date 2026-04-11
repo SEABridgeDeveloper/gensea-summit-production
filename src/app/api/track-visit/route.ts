@@ -20,17 +20,17 @@ export async function POST(req: Request) {
       headerStore.get('x-real-ip') ||
       ''
 
-    // Lookup country/city from IP (ip-api.com, free, no key needed)
+    // Lookup country/city from IP (ipapi.co, free HTTPS, no key needed)
     let country = ''
     let city = ''
     if (ip && ip !== '127.0.0.1' && ip !== '::1') {
       try {
-        const geoRes = await fetch(`http://ip-api.com/json/${ip}?fields=country,city`, {
+        const geoRes = await fetch(`https://ipapi.co/${ip}/json/`, {
           signal: AbortSignal.timeout(3000),
         })
         if (geoRes.ok) {
           const geo = await geoRes.json()
-          country = geo.country || ''
+          country = geo.country_name || ''
           city = geo.city || ''
         }
       } catch {
