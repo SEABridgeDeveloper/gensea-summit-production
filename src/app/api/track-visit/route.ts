@@ -2,8 +2,7 @@ import { cookies, headers } from 'next/headers'
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
-  let country = 'ERROR'
-let city = 'ERROR'
+
   try {
     const cookieStore = await cookies()
     const headerStore = await headers()

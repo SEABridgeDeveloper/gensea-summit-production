@@ -20,7 +20,7 @@ export default function EventInfo() {
       <div className="event-hero reveal">
         <p className="event-overline">Event Details</p>
         <div className="event-date-block">
-          <div className="event-date-big">16 &ndash; 18</div>
+          <div className="event-date-big">11 &ndash; 12</div>
           <span className="event-month">July 2026</span>
         </div>
         <p className="event-location-big">

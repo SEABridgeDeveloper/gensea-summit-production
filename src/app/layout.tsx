@@ -12,14 +12,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Gen SEA Summit 2026 — Building Amidst Chaos',
   description:
-    'Gen SEA Summit 2026 — One Summit. One Region. One Future. One Generation. 16–18 July 2026, Khon Kaen, Thailand.',
+    'Gen SEA Summit 2026 — One Summit. One Region. One Future. One Generation. 11–12 July 2026, Khon Kaen, Thailand.',
       icons: {
     icon: '/logo.webp',        // browser tab
     apple: '/logo.webp',       // iOS home screen
   },
     openGraph: {
     title: 'Gen SEA Summit 2026 — Building Amidst Chaos',
-    description: 'Gen SEA Summit 2026 — One Summit. One Region. One Future. One Generation. 16–18 July 2026, Khon Kaen, Thailand.',
+    description: 'Gen SEA Summit 2026 — One Summit. One Region. One Future. One Generation. 11–12 July 2026, Khon Kaen, Thailand.',
     images: ['/logo.webp'], // image when shared on social/search
   },
 }
